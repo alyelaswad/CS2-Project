@@ -7,19 +7,19 @@ template <typename T>
 class AirplaneWaitingQueue : Deque<T>
 {
 private:
-    const int Tmax = 360;
+    const int Tmax = 360; // as instructed in the paper, these variables should be assumed with an unchanged value. (hence why it is a const)
     const int tLanding = 10;
     const double avTime = 6;
     int t;
-    int RemTime;
-    double probArr;
-    int Tarrival;
-    double averageWaitTime;
-    static int JobCount;
-    int WaitTotal;
+    int RemTime; // remaining time to land.
+    double probArr; //probability of arrival per unit time.
+    int Tarrival; // arrival time.
+    double averageWaitTime; 
+    static int JobCount; // the number of planes landing.
+    int WaitTotal; // total wait time.
 
 public:
-    int getT();
+    int getT(); //setter and getters.
 
     int getRemTime();
 
@@ -39,19 +39,19 @@ public:
 
     void setAverageWaitTime(double averageWaitTime);
 
-    void Arrival();
+    void Arrival(); // Test for Arrival & Arrival Processing
 
-    void Service();
+    void Service(); // Test for server ready. If ready, exit line and start service.
 
-    void ExitLine();
+    void ExitLine(); // exits the landing line.
 
-    int getWaitTotal();
+    int getWaitTotal(); //getter
 
-    void setWaitTotal(int WaitTotal);
+    void setWaitTotal(int WaitTotal); //setter
 
-    double AverageWait();
+    double AverageWait(); // Computes average wait tim
 
-    void DisplayActivity();
+    void DisplayActivity(); // displays the process happening at the queue.
 };
 
 #endif
