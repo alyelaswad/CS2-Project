@@ -1,22 +1,26 @@
-#ifndef LinkedList_H
-#define LinkedList_H
-#include "Node.h" // including the node, since it is associated with the linked list.
-template <class T>
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
+#include "node.h"
+#include <QString>
 class LinkedList
 {
 private:
-    Node<T> *head, *tail; // doubly linked list's nodes.
+    Node *head, *tail;
 
 public:
     LinkedList();
 
-    Node<T> *get_head(); // getter for head
+    Node *&get_head();
 
-    Node<T> *get_tail(); // getter for tail
+    Node *&get_tail();
 
-    Node<T> *append(T info_p); // inserts at the end of the node
+    Node *append(QString info_p);
 
-    Node<T> *insertMid(Node<T> *curr, T info); // inserts between between nodes (could also be used to insert at the start of the linked list.)
-    void display(LinkedList<T> node); //(displays the list's contents)
+    Node *insertMid(Node *curr, string info);
+    void add(QString info_p);
+    void pop(QString inf);
+    ~LinkedList();
 };
-#endif
+
+#endif // LINKEDLIST_H
